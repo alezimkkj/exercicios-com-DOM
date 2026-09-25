@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+ol p {
+    margin: 0;
+}

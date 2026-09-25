@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <title>Sistema de Atendimento Lanchonete</title>
+</head>
+
+<body>
+    <h1>Sistema de Atendimento - Lanchonete</h1>
+
+    <ol>
+        <li> - Hambúrguer - R$ 15,00</li>
+        <li> - Pizza - R$ 20,00</li>
+        <li> - Refrigerante - R$ 6,00</li>
+        <li> - Batata Frita - R$ 10,00</li>
+        <p><span>0</span> - Finalizar Pedido</p>
+    </ol>
+
+    <form>
+        <label>
+            O que deseja? (Digite o número) <br>
+            <input type="number" name="pedido" id="pedido">
+        </label>
+        <button type="submit" id="btnPedir">Pedir</button>
+        <p id="situacaoPedido"></p>
+    </form>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
