@@ -5,7 +5,7 @@ while (senha !== "1234") {
     senha = window.prompt("Senha Incorreta! Tente novamente: ");
 }
 
-let carrinho = {};
+let carrinho = [];
 let total = 0;
 let subtotal = 0;
 let desconto = 0;
@@ -20,14 +20,15 @@ btnPedir.addEventListener("click", e => {
     let opcao = inputPedido.value;
 
     switch (opcao) {
+
         case "0":
             btnPedir.disabled = true;
 
             situacaoPedido.innerHTML = "Pedido finalizado! <br>";
             inputPedido.value = "";
 
-            for (const [chave, valor] of Object.entries(carrinho)) {
-                situacaoPedido.innerHTML += `Produto: ${chave}, Quantidade: ${valor.quantidade}, Valor: R$ ${valor.total} <br>`;
+            for (const produto of carrinho) {
+                situacaoPedido.innerHTML += `Produto: ${produto.nome}, Valor: R$ ${produto.valor} <br>`;
             }
 
             desconto = subtotal > 50 ? subtotal * 0.10 : 0;
@@ -43,15 +44,10 @@ btnPedir.addEventListener("click", e => {
         case "1":
             subtotal += 15;
 
-            if (carrinho["hamburguer"]) {
-                carrinho["hamburguer"].quantidade++;
-                carrinho["hamburguer"].total += 15;
-            } else {
-                carrinho["hamburguer"] = {
-                    quantidade: 1,
-                    total: 15
-                };
-            }
+            carrinho.push({
+                nome: "hamburguer",
+                valor: 15
+            });
 
             situacaoPedido.innerHTML += `Hambúrguer adicionado ao carrinho! <br>`;
             inputPedido.value = "";
@@ -61,15 +57,10 @@ btnPedir.addEventListener("click", e => {
         case "2":
             subtotal += 20;
 
-            if (carrinho["pizza"]) {
-                carrinho["pizza"].quantidade++;
-                carrinho["pizza"].total += 20;
-            } else {
-                carrinho["pizza"] = {
-                    quantidade: 1,
-                    total: 20
-                };
-            }
+            carrinho.push({
+                nome: "pizza",
+                valor: 20
+            });
 
             situacaoPedido.innerHTML += `Pizza adicionada ao carrinho! <br>`;
             inputPedido.value = "";
@@ -79,15 +70,10 @@ btnPedir.addEventListener("click", e => {
         case "3":
             subtotal += 6;
 
-            if (carrinho["refrigerante"]) {
-                carrinho["refrigerante"].quantidade++;
-                carrinho["refrigerante"].total += 6;
-            } else {
-                carrinho["refrigerante"] = {
-                    quantidade: 1,
-                    total: 6
-                };
-            }
+            carrinho.push({
+                nome: "refrigerante",
+                valor: 6
+            });
 
             situacaoPedido.innerHTML += `Refrigerante adicionado ao carrinho! <br>`;
             inputPedido.value = "";
@@ -97,15 +83,10 @@ btnPedir.addEventListener("click", e => {
         case "4":
             subtotal += 10;
 
-            if (carrinho["batata frita"]) {
-                carrinho["batata frita"].quantidade++;
-                carrinho["batata frita"].total += 10;
-            } else {
-                carrinho["batata frita"] = {
-                    quantidade: 1,
-                    total: 10
-                };
-            }
+            carrinho.push({
+                nome: "batata frita",
+                valor: 10
+            });
 
             situacaoPedido.innerHTML += `Batata frita adicionada ao carrinho! <br>`;
             inputPedido.value = "";
